@@ -19,18 +19,18 @@ require_once dirname(__FILE__) . '/../../Encoder/Base64Encoder.php';
  * @author Chris Corbyn
  */
 class Swift_Mime_HeaderEncoder_Base64HeaderEncoder
-  extends Swift_Encoder_Base64Encoder
-  implements Swift_Mime_HeaderEncoder
+    extends Swift_Encoder_Base64Encoder
+    implements Swift_Mime_HeaderEncoder
 {
-  
-  /**
-   * Get the name of this encoding scheme.
-   * Returns the string 'B'.
-   * @return string
-   */
-  public function getName()
-  {
-    return 'B';
-  }
-  
+
+    /**
+     * Get the name of this encoding scheme.
+     * Returns the string 'B'.
+     * @return string
+     */
+    public function getName()
+    {
+        return 'B';
+    }
+
 }
