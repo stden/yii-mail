@@ -136,6 +136,7 @@ class Swift_Mime_SimpleMessage extends Swift_Mime_MimePart
      * This does not override the From field, but it has a higher significance.
      * @param string $sender
      * @param string $name optional
+     * @return Swift_Mime_SimpleMessage
      */
     public function setSender($address, $name = null)
     {

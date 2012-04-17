@@ -32,6 +32,10 @@
  *     <li>setTo(array('receiver@domain.org', 'other@domain.org' => 'Name'))</li>
  *     <li>attach(Swift_Attachment::fromPath('my-document.pdf'))</li>
  * </ul>
+ *
+ * @property $from От кого (email)
+ * @property $subject Тема письма
+ *
  */
 class YiiMailMessage extends CComponent
 {
@@ -51,7 +55,9 @@ class YiiMailMessage extends CComponent
     /**
      * Any requests to set or get attributes or call methods on this class that
      * are not found are redirected to the {@link Swift_Mime_Message} object.
-     * @param string the attribute name
+     * @param string $name attribute name
+     * @throws CException
+     * @return mixed
      */
     public function __get($name)
     {
@@ -146,6 +152,8 @@ class YiiMailMessage extends CComponent
             // renderInternal - this requires that we use an actual path to the
             // view rather than the usual alias
             $viewPath = Yii::getPathOfAlias(Yii::app()->mail->viewPath . '.' . $this->view) . '.php';
+            // Путь к файлу с учётом языка (русские в подпапке "ru")
+            $viewPath = Yii::app()->findLocalizedFile($viewPath);
             $body = $controller->renderInternal($viewPath, array_merge($body, array('mail' => $this)), true);
         }
         return $this->message->setBody($body, $contentType, $charset);
