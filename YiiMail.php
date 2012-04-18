@@ -217,6 +217,11 @@ class YiiMail extends CApplicationComponent
                     foreach ($this->transportOptions as $option => $value)
                         $this->transport->{'set' . ucfirst($option)}($value); // sets option with the setter method
                     break;
+                case 'gmail':
+                    $this->transport = Swift_GmailTransport::newInstance();
+                    foreach ($this->transportOptions as $option => $value)
+                        $this->transport->{'set' . ucfirst($option)}($value); // sets option with the setter method
+                    break;
             }
         }
 
