@@ -34,6 +34,7 @@
  * </ul>
  *
  * @property $from От кого (email)
+ * @property $to Кому (email)
  * @property $subject Тема письма
  *
  */
