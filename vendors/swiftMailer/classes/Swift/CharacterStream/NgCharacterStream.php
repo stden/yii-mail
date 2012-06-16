@@ -274,7 +274,7 @@ Class Swift_CharacterStream_NgCharacterStream
         if (!isset($this->_charReader)) {
             $this->_charReader = $this->_charReaderFactory->getReaderFor(
                 $this->_charset);
-            $this->_map = array();
+            $this->_map = [];
             $this->_mapType = $this->_charReader->getMapType();
         }
         $ignored = '';

@@ -4,22 +4,22 @@ Swift_DependencyContainer::getInstance()
 
     ->register('transport.smtp')
     ->asNewInstanceOf('Swift_Transport_EsmtpTransport')
-    ->withDependencies(array(
+    ->withDependencies([
     'transport.buffer',
-    array('transport.authhandler'),
+    ['transport.authhandler'],
     'transport.eventdispatcher'
-))
+])
 
     ->register('transport.sendmail')
     ->asNewInstanceOf('Swift_Transport_SendmailTransport')
-    ->withDependencies(array(
+    ->withDependencies([
     'transport.buffer',
     'transport.eventdispatcher'
-))
+])
 
     ->register('transport.mail')
     ->asNewInstanceOf('Swift_Transport_MailTransport')
-    ->withDependencies(array('transport.mailinvoker', 'transport.eventdispatcher'))
+    ->withDependencies(['transport.mailinvoker', 'transport.eventdispatcher'])
 
     ->register('transport.loadbalanced')
     ->asNewInstanceOf('Swift_Transport_LoadBalancedTransport')
@@ -32,17 +32,17 @@ Swift_DependencyContainer::getInstance()
 
     ->register('transport.buffer')
     ->asNewInstanceOf('Swift_Transport_StreamBuffer')
-    ->withDependencies(array('transport.replacementfactory'))
+    ->withDependencies(['transport.replacementfactory'])
 
     ->register('transport.authhandler')
     ->asNewInstanceOf('Swift_Transport_Esmtp_AuthHandler')
-    ->withDependencies(array(
-    array(
+    ->withDependencies([
+    [
         'transport.crammd5auth',
         'transport.loginauth',
         'transport.plainauth'
-    )
-))
+    ]
+])
 
     ->register('transport.crammd5auth')
     ->asNewInstanceOf('Swift_Transport_Esmtp_Auth_CramMd5Authenticator')

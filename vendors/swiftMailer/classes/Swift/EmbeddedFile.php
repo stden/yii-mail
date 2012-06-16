@@ -32,7 +32,7 @@ class Swift_EmbeddedFile extends Swift_Mime_EmbeddedFile
                                 $contentType = null)
     {
         call_user_func_array(
-            array($this, 'Swift_Mime_EmbeddedFile::__construct'),
+            [$this, 'Swift_Mime_EmbeddedFile::__construct'],
             Swift_DependencyContainer::getInstance()
                 ->createDependenciesFor('mime.embeddedfile')
         );

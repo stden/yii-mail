@@ -22,7 +22,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoder extends Swift_Encoder_QpEncoder
     implements Swift_Mime_HeaderEncoder
 {
 
-    private static $_headerSafeMap = array();
+    private static $_headerSafeMap = [];
 
     /**
      * Creates a new QpHeaderEncoder for the given CharacterStream.
@@ -34,7 +34,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoder extends Swift_Encoder_QpEncoder
         if (empty(self::$_headerSafeMap)) {
             foreach (array_merge(
                          range(0x61, 0x7A), range(0x41, 0x5A),
-                         range(0x30, 0x39), array(0x20, 0x21, 0x2A, 0x2B, 0x2D, 0x2F)
+                         range(0x30, 0x39), [0x20, 0x21, 0x2A, 0x2B, 0x2D, 0x2F]
                      ) as $byte) {
                 self::$_headerSafeMap[$byte] = chr($byte);
             }
@@ -61,7 +61,7 @@ class Swift_Mime_HeaderEncoder_QpHeaderEncoder extends Swift_Encoder_QpEncoder
     public function encodeString($string, $firstLineOffset = 0,
                                  $maxLineLength = 0)
     {
-        return str_replace(array(' ', '=20', "=\r\n"), array('_', '_', "\r\n"),
+        return str_replace([' ', '=20', "=\r\n"], ['_', '_', "\r\n"],
             parent::encodeString($string, $firstLineOffset, $maxLineLength)
         );
     }

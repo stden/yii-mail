@@ -21,7 +21,7 @@ class Swift_StreamFilters_StringReplacementFilterFactory
 {
 
     /** Lazy-loaded filters */
-    private $_filters = array();
+    private $_filters = [];
 
     /**
      * Create a new StreamFilter to replace $search with $replace in a string.
@@ -33,11 +33,11 @@ class Swift_StreamFilters_StringReplacementFilterFactory
     {
         if (!isset($this->_filters[$search][$replace])) {
             if (!isset($this->_filters[$search])) {
-                $this->_filters[$search] = array();
+                $this->_filters[$search] = [];
             }
 
             if (!isset($this->_filters[$search][$replace])) {
-                $this->_filters[$search][$replace] = array();
+                $this->_filters[$search][$replace] = [];
             }
 
             $this->_filters[$search][$replace]

@@ -26,13 +26,13 @@ abstract class Swift_ByteStream_AbstractFilterableInputStream
     private $_sequence = 0;
 
     /** StreamFilters */
-    private $_filters = array();
+    private $_filters = [];
 
     /** A buffer for writing */
     private $_writeBuffer = '';
 
     /** Bound streams */
-    private $_mirrors = array();
+    private $_mirrors = [];
 
     /**
      * Commit the given bytes to the storage medium immediately.

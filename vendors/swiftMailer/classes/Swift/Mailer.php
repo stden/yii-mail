@@ -110,10 +110,10 @@ class Swift_Mailer
         $bcc = $message->getBcc();
 
         if (!empty($cc)) {
-            $message->setCc(array());
+            $message->setCc([]);
         }
         if (!empty($bcc)) {
-            $message->setBcc(array());
+            $message->setBcc([]);
         }
 
         //Use an iterator if set
@@ -125,7 +125,7 @@ class Swift_Mailer
         }
         else {
             foreach ($to as $address => $name) {
-                $message->setTo(array($address => $name));
+                $message->setTo([$address => $name]);
                 $sent += $this->send($message, $failedRecipients);
             }
         }

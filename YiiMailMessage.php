@@ -102,7 +102,7 @@ class YiiMailMessage extends CComponent
             return parent::__call($name, $parameters);
         } catch (CException $e) {
             if (method_exists($this->message, $name))
-                return call_user_func_array(array($this->message, $name), $parameters);
+                return call_user_func_array([$this->message, $name], $parameters);
             else
                 throw $e;
         }
@@ -140,7 +140,7 @@ class YiiMailMessage extends CComponent
     public function setBody($body = '', $contentType = null, $charset = null)
     {
         if ($this->view !== null) {
-            if (!is_array($body)) $body = array('body' => $body);
+            if (!is_array($body)) $body = ['body' => $body];
 
             // if Yii::app()->controller doesn't exist create a dummy
             // controller to render the view (needed in the console app)
@@ -155,7 +155,7 @@ class YiiMailMessage extends CComponent
             $viewPath = Yii::getPathOfAlias(Yii::app()->mail->viewPath . '.' . $this->view) . '.php';
             // Путь к файлу с учётом языка (русские в подпапке "ru")
             $viewPath = Yii::app()->findLocalizedFile($viewPath);
-            $body = $controller->renderInternal($viewPath, array_merge($body, array('mail' => $this)), true);
+            $body = $controller->renderInternal($viewPath, array_merge($body, ['mail' => $this]), true);
         }
         return $this->message->setBody($body, $contentType, $charset);
     }

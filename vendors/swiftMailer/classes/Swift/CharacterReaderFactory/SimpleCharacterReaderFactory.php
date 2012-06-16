@@ -25,14 +25,14 @@ class Swift_CharacterReaderFactory_SimpleCharacterReaderFactory
      * @var array
      * @access private
      */
-    private $_map = array();
+    private $_map = [];
 
     /**
      * Factories which have already been loaded.
      * @var Swift_CharacterReaderFactory[]
      * @access private
      */
-    private $_loaded = array();
+    private $_loaded = [];
 
     /**
      * Creates a new CharacterReaderFactory.
@@ -41,26 +41,26 @@ class Swift_CharacterReaderFactory_SimpleCharacterReaderFactory
     {
         $prefix = 'Swift_CharacterReader_';
 
-        $singleByte = array(
+        $singleByte = [
             'class' => $prefix . 'GenericFixedWidthReader',
-            'constructor' => array(1)
-        );
+            'constructor' => [1]
+        ];
 
-        $doubleByte = array(
+        $doubleByte = [
             'class' => $prefix . 'GenericFixedWidthReader',
-            'constructor' => array(2)
-        );
+            'constructor' => [2]
+        ];
 
-        $fourBytes = array(
+        $fourBytes = [
             'class' => $prefix . 'GenericFixedWidthReader',
-            'constructor' => array(4)
-        );
+            'constructor' => [4]
+        ];
 
         //Utf-8
-        $this->_map['utf-?8'] = array(
+        $this->_map['utf-?8'] = [
             'class' => $prefix . 'Utf8Reader',
-            'constructor' => array()
-        );
+            'constructor' => []
+        ];
 
         //7-8 bit charsets
         $this->_map['(us-)?ascii'] = $singleByte;

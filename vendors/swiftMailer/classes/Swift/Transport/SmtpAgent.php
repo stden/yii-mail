@@ -31,6 +31,6 @@ interface Swift_Transport_SmtpAgent
      * @param int[] $codes
      * @param string[] &$failures
      */
-    public function executeCommand($command, $codes = array(), &$failures = null);
+    public function executeCommand($command, $codes = [], &$failures = null);
 
 }

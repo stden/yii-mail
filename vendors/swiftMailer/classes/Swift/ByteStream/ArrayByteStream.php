@@ -26,7 +26,7 @@ class Swift_ByteStream_ArrayByteStream
      * @var string[]
      * @access private
      */
-    private $_array = array();
+    private $_array = [];
 
     /**
      * The size of the stack
@@ -43,7 +43,7 @@ class Swift_ByteStream_ArrayByteStream
     private $_offset = 0;
 
     /** Bound streams */
-    private $_mirrors = array();
+    private $_mirrors = [];
 
     /**
      * Create a new ArrayByteStream.
@@ -60,7 +60,7 @@ class Swift_ByteStream_ArrayByteStream
             $this->write($stack);
         }
         else {
-            $this->_array = array();
+            $this->_array = [];
         }
     }
 
@@ -167,7 +167,7 @@ class Swift_ByteStream_ArrayByteStream
     public function flushBuffers()
     {
         $this->_offset = 0;
-        $this->_array = array();
+        $this->_array = [];
         $this->_arraySize = 0;
 
         foreach ($this->_mirrors as $stream) {

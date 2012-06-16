@@ -42,7 +42,7 @@ class Swift_Plugins_BandwidthMonitorPlugin
     private $_in = 0;
 
     /** Bound byte streams */
-    private $_mirrors = array();
+    private $_mirrors = [];
 
     /**
      * Not used.

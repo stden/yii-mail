@@ -25,7 +25,7 @@ class Swift_Mailer_ArrayRecipientIterator
      * @var array
      * @access private
      */
-    private $_recipients = array();
+    private $_recipients = [];
 
     /**
      * Create a new ArrayRecipientIterator from $recipients.

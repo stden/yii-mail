@@ -14,7 +14,7 @@
 
 //You may add or take away what you like (lowercase required)
 
-$swift_mime_types = array(
+$swift_mime_types = [
     'aif' => 'audio/x-aiff',
     'aiff' => 'audio/x-aiff',
     'avi' => 'video/avi',
@@ -73,4 +73,4 @@ $swift_mime_types = array(
     'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     'xml' => 'application/xml',
     'zip' => 'application/zip'
-);
+];

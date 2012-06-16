@@ -34,7 +34,7 @@ class Swift_Plugins_DecoratorPlugin
     private $_originalSubject;
 
     /** Bodies of children before they are replaced */
-    private $_originalChildBodies = array();
+    private $_originalChildBodies = [];
 
     /** The Message that was last replaced */
     private $_lastMessage;
@@ -175,7 +175,7 @@ class Swift_Plugins_DecoratorPlugin
                         $child->setBody($this->_originalChildBodies[$id]);
                     }
                 }
-                $this->_originalChildBodies = array();
+                $this->_originalChildBodies = [];
             }
             $this->_lastMessage = null;
         }
